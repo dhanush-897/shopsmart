@@ -22,12 +22,12 @@ Getting Started See the repository for setup instructions for both frontend and 
 
 Backend 
 -----------
-cd backend
-npm install
+cd backend,
+npm install,
 npm start
 
 Frontend
 --------
-cd frontend
-npm install
+cd frontend,
+npm install,
 npm start
