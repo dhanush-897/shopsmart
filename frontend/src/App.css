@@ -1,0 +1,184 @@
+/* App.css: Place all your custom styles here. You can copy styles from your index.html <style> section. */
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Custom scrollbar for better aesthetics */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    cursor: pointer;
+}
+
+/* Message Box */
+.message-box {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1080;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    text-align: center;
+    min-width: 250px;
+}
+.message-box.success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+.message-box.error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+.message-box.info { background-color: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+.message-box.show { display: block; opacity: 1; }
+
+/* Loading Spinner */
+.loading-spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #0d6efd;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1090;
+    display: none;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Count Badges (Cart & Wishlist) */
+#cartNav .badge,
+#wishlistNav .badge {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    background-color: #dc3545;
+    color: white;
+    font-size: 0.65rem;
+    font-weight: bold;
+    border-radius: 50%;
+    height: 18px;
+    width: 18px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Product Cards */
+.product-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+    background-color: #fff;
+}
+.product-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
+.product-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+.product-card .card-body {
+    flex: 0 0 auto;
+    padding: 1rem 0.5rem 0.5rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+.product-card .card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    width: 100%;
+}
+.product-card .card-actions button {
+    width: 100%; /* Make buttons take full width on small screens */
+    max-width: 150px; /* Limit max width */
+}
+
+/* Price & Button Section */
+.product-price-and-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    width: 100%;
+}
+.product-price-and-buttons .price {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Product List Grid */
+/* Removed conflicting CSS grid styles to use Bootstrap grid */
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .product-card .card-actions {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+    .product-card .card-actions button {
+        flex-grow: 0;
+        width: auto; /* Revert to auto width on larger screens */
+        max-width: none; /* Remove max width constraint */
+    }
+    .product-price-and-buttons {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .product-price-and-buttons .price {
+        margin-bottom: 0;
+    }
+}
+
+/* Rating Stars */
+.rating-stars {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+.rating-stars .star {
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+}
+.rating-stars .star.selected,
+.rating-stars .star:hover,
+.rating-stars .star:hover ~ .star {
+    color: #ffc107;
+}
